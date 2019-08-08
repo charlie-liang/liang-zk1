@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.liangjunwei.dao.HuaMapper">
+ <select id="selects" resultType="Map">
+ 
+    select * from hua a LEFT JOIN typee b on a.cid=b.cid where  name like '%${value}%'
+ </select>
+  <select id="selectsId" resultType="Map">
+    select * from hua a LEFT JOIN typee b on a.cid=b.cid where  id=${value}
+ </select>
+ <delete id="del">
+     delete from hua where id in(${value})
+ </delete>
+ <insert id="add1">
+   insert into hua set name=#{name},miao=#{miao},cid=${cid}
+ </insert>
+ 
+</mapper>
+    
